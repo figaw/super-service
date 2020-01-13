@@ -12,3 +12,9 @@ alias yarn='docker run --rm -it \
     -p 35729:35729 \
     -e CHOKIDAR_USEPOLLING=true \
     node:13.6.0-alpine3.11 yarn'
+
+alias now='docker run --rm -it \
+    -v "$(pwd)":/node \
+    -w /node \
+    -p 3000:3000 \
+    mynow now'

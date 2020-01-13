@@ -2,15 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { useEffect, useState } from 'react';
-
 function App() {
 
-  const [date, setDate] = useState(null);
-  useEffect(() => {
+  const [date, setDate] = React.useState(null);
+  React.useEffect(() => {
     async function getDate() {
       const res = await fetch('/api/date');
+      console.log(res)
       const newDate = await res.text();
+      console.log(newDate)
       setDate(newDate);
     }
     getDate();
@@ -31,9 +31,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-
       <p>{date ? date : 'Loading date...'}</p>
+      </header>
     </div>
   );
 }
